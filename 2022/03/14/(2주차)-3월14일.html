@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>(2주차) 3월14일, draft | 데이터과학 (전북대학교 2022년 1학기)</title>
+<title>(2주차) 3월14일 | 데이터과학 (전북대학교 2022년 1학기)</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="(2주차) 3월14일, draft" />
+<meta property="og:title" content="(2주차) 3월14일" />
 <meta name="author" content="최규빈" />
 <meta property="og:locale" content="en_US" />
 <link rel="canonical" href="https://guebin.github.io/DS2022/2022/03/14/(2%EC%A3%BC%EC%B0%A8)-3%EC%9B%9414%EC%9D%BC.html" />
@@ -15,9 +15,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-03-14T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="(2주차) 3월14일, draft" />
+<meta property="twitter:title" content="(2주차) 3월14일" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"최규빈"},"dateModified":"2022-03-14T00:00:00-05:00","datePublished":"2022-03-14T00:00:00-05:00","headline":"(2주차) 3월14일, draft","mainEntityOfPage":{"@type":"WebPage","@id":"https://guebin.github.io/DS2022/2022/03/14/(2%EC%A3%BC%EC%B0%A8)-3%EC%9B%9414%EC%9D%BC.html"},"url":"https://guebin.github.io/DS2022/2022/03/14/(2%EC%A3%BC%EC%B0%A8)-3%EC%9B%9414%EC%9D%BC.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"최규빈"},"dateModified":"2022-03-14T00:00:00-05:00","datePublished":"2022-03-14T00:00:00-05:00","headline":"(2주차) 3월14일","mainEntityOfPage":{"@type":"WebPage","@id":"https://guebin.github.io/DS2022/2022/03/14/(2%EC%A3%BC%EC%B0%A8)-3%EC%9B%9414%EC%9D%BC.html"},"url":"https://guebin.github.io/DS2022/2022/03/14/(2%EC%A3%BC%EC%B0%A8)-3%EC%9B%9414%EC%9D%BC.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/DS2022/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://guebin.github.io/DS2022/feed.xml" title="데이터과학 (전북대학교 2022년 1학기)" /><link rel="shortcut icon" type="image/x-icon" href="/DS2022/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,7 +88,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">(2주차) 3월14일, draft</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-14T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">(2주차) 3월14일</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-14T00:00:00-05:00" itemprop="datePublished">
         Mar 14, 2022
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -145,33 +145,6 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#연산">연산 </a></li>
 <li class="toc-entry toc-h4"><a href="#형태변환">형태변환 </a></li>
 <li class="toc-entry toc-h4"><a href="#선언고급">선언고급 </a></li>
-<li class="toc-entry toc-h4"><a href="#tf.concat">tf.concat </a></li>
-<li class="toc-entry toc-h4"><a href="#tf.stack">tf.stack </a></li>
-<li class="toc-entry toc-h4"><a href="#tf.einsum">tf.einsum </a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#tnp">tnp </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#tnp-사용방법-(불만해결방법)">tnp 사용방법 (불만해결방법) </a></li>
-<li class="toc-entry toc-h4"><a href="#선언,-선언고급">선언, 선언고급 </a></li>
-<li class="toc-entry toc-h4"><a href="#타입">타입 </a></li>
-<li class="toc-entry toc-h4"><a href="#tf.contant로-만들어도-마치-넘파이인듯-쓰는-기능들">tf.contant로 만들어도 마치 넘파이인듯 쓰는 기능들 </a></li>
-<li class="toc-entry toc-h4"><a href="#그렇지만-np.array는-아님">그렇지만 np.array는 아님 </a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#tf.Variable">tf.Variable </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#선언">선언 </a></li>
-<li class="toc-entry toc-h4"><a href="#타입">타입 </a></li>
-<li class="toc-entry toc-h4"><a href="#인덱싱">인덱싱 </a></li>
-<li class="toc-entry toc-h4"><a href="#tf.Variable-$\to$-넘파이">tf.Variable $\to$ 넘파이 </a></li>
-<li class="toc-entry toc-h4"><a href="#tf.Variable-도-불편하다.">tf.Variable 도 불편하다. </a></li>
-<li class="toc-entry toc-h4"><a href="#연산">연산 </a></li>
-<li class="toc-entry toc-h4"><a href="#형태변환">형태변환 </a></li>
-<li class="toc-entry toc-h4"><a href="#선언고급">선언고급 </a></li>
-<li class="toc-entry toc-h4"><a href="#tf.concat">tf.concat </a></li>
-<li class="toc-entry toc-h4"><a href="#tf.stack">tf.stack </a></li>
-<li class="toc-entry toc-h4"><a href="#심지어-tf.Variable()로-만들어진-오브젝트는-tnp의-효과(은총)도-받지-못함">심지어 tf.Variable()로 만들어진 오브젝트는 tnp의 효과(은총)도 받지 못함 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -217,14 +190,6 @@ window.onload = wrap_img;
 
 <div class="output_wrapper">
 <div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-03-14 15:21:15.520866: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -478,6 +443,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>이것은 아래와 같은 매트릭스처럼 생각할 수 있음</p>
 
 <pre><code>1 2 
 3 4</code></pre>
@@ -1247,7 +1213,7 @@ array([[1, 2, 3],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [28]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [138]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> _matrix[<span style="color: rgb(98,98,98)">0</span>,<span style="color: rgb(98,98,98)">0</span>]<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">22</span>
 
 <span class="ansi-red-fg">TypeError</span>: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment</pre>
@@ -1291,7 +1257,7 @@ Input <span class="ansi-green-fg">In [28]</span>, in <span class="ansi-cyan-fg">
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [29]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [139]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1.1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">2</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">+</span><span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">3</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">4</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -1327,6 +1293,22 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2,), dtype=float32, numpy=array([4.1, 6. ], dtype=float32)&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -1430,7 +1412,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [32]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [143]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1.1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">2</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">+</span><span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">constant</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">3.0</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">4.0</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">float64</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -1851,7 +1833,7 @@ array([[ 1],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [43]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [154]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">b</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">@</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">a</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -1978,7 +1960,7 @@ array([[1, 0],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [46]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [157]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">tf</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">linalg</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">inv</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">a</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/ops/gen_linalg_ops.py:1506</span>, in <span class="ansi-cyan-fg">matrix_inverse</span><span class="ansi-blue-fg">(input, adjoint, name)</span>
@@ -2439,7 +2421,7 @@ array([[1., 0.],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [72]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [169]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">_I</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">@</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">_x</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -2487,7 +2469,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [73]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [170]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">_x</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">@</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">_I</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -2614,7 +2596,7 @@ array([[1.],
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [77]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [173]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">_x</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">@</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">_I</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -2704,7 +2686,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [79]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [175]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">_I</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">@</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">_x</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py:153</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
@@ -2777,7 +2759,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span><span class="mi">33</span><span class="p">])</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span><span class="mi">33</span><span class="p">])</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># (2,) @ (2,2) ==&gt; (2,)를 (1,2)벡터로 해석해줘서 곱하기 수행, 수행결과는 다시 (2,)로 저장</span>
 </pre></div>
 
     </div>
@@ -2810,7 +2792,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">22</span><span class="p">],[</span><span class="mi">33</span><span class="p">]])</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">22</span><span class="p">],[</span><span class="mi">33</span><span class="p">]])</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># (2,1) @ (2,2)</span>
 </pre></div>
 
     </div>
@@ -2826,7 +2808,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [89]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [181]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">np</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">array</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">22</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">33</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">@</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">np</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">diag</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
 
 <span class="ansi-red-fg">ValueError</span>: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) (size 2 is different from 1)</pre>
@@ -3391,195 +3373,6 @@ array([[1, 1, 1, 1],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.concat">
-<a class="anchor" href="#tf.concat" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.concat<a class="anchor-link" href="#tf.concat"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.stack">
-<a class="anchor" href="#tf.stack" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.stack<a class="anchor-link" href="#tf.stack"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.einsum">
-<a class="anchor" href="#tf.einsum" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.einsum<a class="anchor-link" href="#tf.einsum"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="tnp">
-<a class="anchor" href="#tnp" aria-hidden="true"><span class="octicon octicon-link"></span></a>tnp<a class="anchor-link" href="#tnp"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tnp-사용방법-(불만해결방법)">
-<a class="anchor" href="#tnp-%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95-(%EB%B6%88%EB%A7%8C%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95)" aria-hidden="true"><span class="octicon octicon-link"></span></a>tnp 사용방법 (불만해결방법)<a class="anchor-link" href="#tnp-%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95-(%EB%B6%88%EB%A7%8C%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95)"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="선언,-선언고급">
-<a class="anchor" href="#%EC%84%A0%EC%96%B8,-%EC%84%A0%EC%96%B8%EA%B3%A0%EA%B8%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>선언, 선언고급<a class="anchor-link" href="#%EC%84%A0%EC%96%B8,-%EC%84%A0%EC%96%B8%EA%B3%A0%EA%B8%89"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="타입">
-<a class="anchor" href="#%ED%83%80%EC%9E%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>타입<a class="anchor-link" href="#%ED%83%80%EC%9E%85"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.contant로-만들어도-마치-넘파이인듯-쓰는-기능들">
-<a class="anchor" href="#tf.contant%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%8F%84-%EB%A7%88%EC%B9%98-%EB%84%98%ED%8C%8C%EC%9D%B4%EC%9D%B8%EB%93%AF-%EC%93%B0%EB%8A%94-%EA%B8%B0%EB%8A%A5%EB%93%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.contant로 만들어도 마치 넘파이인듯 쓰는 기능들<a class="anchor-link" href="#tf.contant%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%8F%84-%EB%A7%88%EC%B9%98-%EB%84%98%ED%8C%8C%EC%9D%B4%EC%9D%B8%EB%93%AF-%EC%93%B0%EB%8A%94-%EA%B8%B0%EB%8A%A5%EB%93%A4"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="그렇지만-np.array는-아님">
-<a class="anchor" href="#%EA%B7%B8%EB%A0%87%EC%A7%80%EB%A7%8C-np.array%EB%8A%94-%EC%95%84%EB%8B%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>그렇지만 np.array는 아님<a class="anchor-link" href="#%EA%B7%B8%EB%A0%87%EC%A7%80%EB%A7%8C-np.array%EB%8A%94-%EC%95%84%EB%8B%98"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="tf.Variable">
-<a class="anchor" href="#tf.Variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.Variable<a class="anchor-link" href="#tf.Variable"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="선언">
-<a class="anchor" href="#%EC%84%A0%EC%96%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>선언<a class="anchor-link" href="#%EC%84%A0%EC%96%B8"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="타입">
-<a class="anchor" href="#%ED%83%80%EC%9E%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>타입<a class="anchor-link" href="#%ED%83%80%EC%9E%85"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="인덱싱">
-<a class="anchor" href="#%EC%9D%B8%EB%8D%B1%EC%8B%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>인덱싱<a class="anchor-link" href="#%EC%9D%B8%EB%8D%B1%EC%8B%B1"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.Variable-$\to$-넘파이">
-<a class="anchor" href="#tf.Variable-%24%5Cto%24-%EB%84%98%ED%8C%8C%EC%9D%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.Variable $\to$ 넘파이<a class="anchor-link" href="#tf.Variable-%24%5Cto%24-%EB%84%98%ED%8C%8C%EC%9D%B4"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.Variable-도-불편하다.">
-<a class="anchor" href="#tf.Variable-%EB%8F%84-%EB%B6%88%ED%8E%B8%ED%95%98%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.Variable 도 불편하다.<a class="anchor-link" href="#tf.Variable-%EB%8F%84-%EB%B6%88%ED%8E%B8%ED%95%98%EB%8B%A4."> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="연산">
-<a class="anchor" href="#%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>연산<a class="anchor-link" href="#%EC%97%B0%EC%82%B0"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="형태변환">
-<a class="anchor" href="#%ED%98%95%ED%83%9C%EB%B3%80%ED%99%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>형태변환<a class="anchor-link" href="#%ED%98%95%ED%83%9C%EB%B3%80%ED%99%98"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="선언고급">
-<a class="anchor" href="#%EC%84%A0%EC%96%B8%EA%B3%A0%EA%B8%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>선언고급<a class="anchor-link" href="#%EC%84%A0%EC%96%B8%EA%B3%A0%EA%B8%89"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.concat">
-<a class="anchor" href="#tf.concat" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.concat<a class="anchor-link" href="#tf.concat"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="tf.stack">
-<a class="anchor" href="#tf.stack" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.stack<a class="anchor-link" href="#tf.stack"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="심지어-tf.Variable()로-만들어진-오브젝트는-tnp의-효과(은총)도-받지-못함">
-<a class="anchor" href="#%EC%8B%AC%EC%A7%80%EC%96%B4-tf.Variable()%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%A7%84-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%EB%8A%94-tnp%EC%9D%98-%ED%9A%A8%EA%B3%BC(%EC%9D%80%EC%B4%9D)%EB%8F%84-%EB%B0%9B%EC%A7%80-%EB%AA%BB%ED%95%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>심지어 tf.Variable()로 만들어진 오브젝트는 tnp의 효과(은총)도 받지 못함<a class="anchor-link" href="#%EC%8B%AC%EC%A7%80%EC%96%B4-tf.Variable()%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%A7%84-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%EB%8A%94-tnp%EC%9D%98-%ED%9A%A8%EA%B3%BC(%EC%9D%80%EC%B4%9D)%EB%8F%84-%EB%B0%9B%EC%A7%80-%EB%AA%BB%ED%95%A8"> </a>
-</h4>
-</div>
-</div>
-</div>
 </div>
 
 
