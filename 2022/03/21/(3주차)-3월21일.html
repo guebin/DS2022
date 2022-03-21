@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      14 min read
     
 </span></p>
 
@@ -3253,6 +3253,93 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">a</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span> <span class="c1"># 테이프를 기록 </span>
+<span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2 </span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=12.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3261,6 +3348,106 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="c1">#a=tf.constant(3.0) </span>
+
+<span class="n">mytape</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span>
+
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span> <span class="c1"># 테이프를 기록 </span>
+<span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> 
+
+<span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=18.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$a=\frac{3}{2}x$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$y=ax^2= \frac{3}{2}x^3$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\frac{dy}{dx}= \frac{3}{2}3 x^2$</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="mf">1.5</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>18.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3274,11 +3461,11 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>(상황)</p>
 <p>우리가 어려운 미분계산을 컴퓨터에게 부탁하는 상황임. (예를들면 $y=3x^2$) 컴퓨터에게 부탁을 하기 위해서는 연습장(=테이프)에 $y=3x^2$이라는 수식을 써서 보여줘야하는데 이때 컴퓨터에게 target이 무엇인지 그리고 무엇으로 미분하고 싶은 것인지를 명시해야함.</p>
-<p>(1) <code>mytape = tf.GradientTape()</code>:</p>
-<p>(2) <code>mytape.__enter__()</code>:</p>
-<p>(3) <code>a=x/2*3; y=a*x**2</code>:</p>
-<p>(4) <code>mytape.__exit__(None,None,None)</code>:</p>
-<p>(5) <code>mytape.gradient(y,x)</code>:</p>
+<p>(1) <code>mytape = tf.GradientTape()</code>: 컴퓨터에게 전달할 공책가 만들어짐, 연습장의 이름을 mytape이라고 쓴다.</p>
+<p>(2) <code>mytape.__enter__()</code>: mytape공책을 연다</p>
+<p>(3) <code>a=x/2*3; y=a*x**2</code>: 컴퓨터에게 부탁할 수식을 쓴다.</p>
+<p>(4) <code>mytape.__exit__(None,None,None)</code>: mytape라는 공책을 닫는다.</p>
+<p>(5) <code>mytape.gradient(y,x)</code>: $y$를 $x$로 미분한다는 포스트잇을 남겨서 컴퓨터한테 전달</p>
 
 </div>
 </div>
@@ -3291,6 +3478,49 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+
+<span class="n">mytape</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span>
+
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span> <span class="c1"># 테이프를 기록 </span>
+<span class="c1">#a=x/2*3 # a=x*(3/2)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+<span class="n">mytape</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> 
+
+<span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=12.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3299,10 +3529,49 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+
+<span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=12.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>(불편한점)</p>
+<p>(해설)</p>
 
 </div>
 </div>
@@ -3310,7 +3579,24 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>(불편해결)</p>
+<p>with문은 아래와 같이 동작한다.</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">expression</span> <span class="k">as</span> <span class="n">myname</span><span class="p">:</span>
+    <span class="c1">### with문 시작</span>
+    <span class="n">blabla</span><span class="o">~</span><span class="err">!</span>
+    <span class="n">yadiyadi</span><span class="o">~</span>
+    <span class="c1">### with문 끝</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) expression이 실행되면서 오브젝트가 하나 생성됨, 그 오브젝트를 myname이라고 받음</p>
+<p>(2) with문이 시작되면서 <code>myname.__enter__()</code> 가 실행</p>
+<p>(3) 블라블라, 야디야디 실행</p>
+<p>(4) with문이 끝나면서 <code>myname.__exit__()</code> 이 실행</p>
 
 </div>
 </div>
@@ -3323,6 +3609,45 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+
+<span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=18.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3339,6 +3664,75 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 2번실행해서 에러를 관찰하자. </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">RuntimeError</span>                              Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [182]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">mytape</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">gradient</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">x</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/tensorflow/python/eager/backprop.py:1032</span>, in <span class="ansi-cyan-fg">GradientTape.gradient</span><span class="ansi-blue-fg">(self, target, sources, output_gradients, unconnected_gradients)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1002</span> <span style="color: rgb(175,0,0)">"""Computes the gradient using operations recorded in context of this tape.</span>
+<span class="ansi-green-intense-fg ansi-bold">   1003</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1004</span> <span style="color: rgb(175,0,0)">Note: Unless you set `persistent=True` a GradientTape can only be used to</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1029</span> <span style="color: rgb(175,0,0)">   called with an unknown value.</span>
+<span class="ansi-green-intense-fg ansi-bold">   1030</span> <span style="color: rgb(175,0,0)">"""</span>
+<span class="ansi-green-intense-fg ansi-bold">   1031</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_tape <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">-&gt; 1032</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">RuntimeError</span>(<span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">A non-persistent GradientTape can only be used to </span><span style="color: rgb(175,0,0)">"</span>
+<span class="ansi-green-intense-fg ansi-bold">   1033</span>                      <span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">compute one set of gradients (or jacobians)</span><span style="color: rgb(175,0,0)">"</span>)
+<span class="ansi-green-intense-fg ansi-bold">   1034</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_recording:
+<span class="ansi-green-intense-fg ansi-bold">   1035</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_persistent:
+
+<span class="ansi-red-fg">RuntimeError</span>: A non-persistent GradientTape can only be used to compute one set of gradients (or jacobians)</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3347,6 +3741,59 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 2번실행해서 에러를 관찰하자. </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=18.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3363,6 +3810,57 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3371,6 +3869,60 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="n">mytape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=18.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -3379,6 +3931,188 @@ Input <span class="ansi-green-fg">In [149]</span>, in <span class="ansi-cyan-fg"
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(관찰1)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">watch_accessed_variables</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="c1">#mytape.watch(x)</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(관찰2)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">watch_accessed_variables</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="n">mytape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>tf.Tensor(18.0, shape=(), dtype=float32)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(관찰3)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">mytape</span><span class="p">:</span>
+    <span class="n">mytape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span> <span class="c1"># a=x*(3/2)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># y=ax^2=(3/2)x^3 </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mytape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=18.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
