@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -151,15 +151,6 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#그리드서치의-문제점">그리드서치의 문제점 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#방법2:-gradient-descent">방법2: gradient descent </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#알고리즘!">알고리즘! </a></li>
-<li class="toc-entry toc-h4"><a href="#잠깐-알고리즘-감상">잠깐 알고리즘 감상 </a></li>
-<li class="toc-entry toc-h4"><a href="#왼쪽/오른쪽중에-어디로-갈지-어떻게-판단하는-과정을-수식화?">왼쪽/오른쪽중에 어디로 갈지 어떻게 판단하는 과정을 수식화? </a></li>
-<li class="toc-entry toc-h4"><a href="#hoxy,-알고리즘을-좀-개선할수-있을까?">hoxy, 알고리즘을 좀 개선할수 있을까? </a></li>
-<li class="toc-entry toc-h4"><a href="#구현코드">구현코드 </a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul><!--
@@ -177,6 +168,19 @@ window.onload = wrap_img;
 <h3 id="강의영상">
 <a class="anchor" href="#%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>강의영상<a class="anchor-link" href="#%EA%B0%95%EC%9D%98%EC%98%81%EC%83%81"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+</p>
+<center class="youtube-iframe-wrapper">
+    <iframe width="730" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+
 </div>
 </div>
 </div>
@@ -604,7 +608,58 @@ array([[9.],
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span> <span class="c1"># 텐서플로우가 계산한 미분값</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 1), dtype=float64, numpy=
+array([[ -127.59753624],
+       [-3214.25306574]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 해석적풀이</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$loss'(\beta)= -2X'y + 2X'X\beta$$<p></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span> <span class="o">@</span> <span class="n">beta</span> <span class="c1"># 이론적인 값 </span>
 </pre></div>
 
     </div>
@@ -640,6 +695,97 @@ array([[ -127.59753624],
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">betahat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span> 
+<span class="n">betahat</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 1), dtype=float64, numpy=
+array([[12.10040012],
+       [ 2.13112662]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+    <span class="n">tape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">betahat</span><span class="p">)</span>
+    <span class="n">yhat</span> <span class="o">=</span> <span class="n">X</span><span class="nd">@betahat</span> 
+    <span class="n">loss</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span>  
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">betahat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(2, 1), dtype=float64, numpy=
+array([[-4.23483471e-12],
+       [-1.06379688e-10]])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -661,7 +807,7 @@ array([[ -127.59753624],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $loss=(\frac{1}{2}\beta-1)^2$를 최소하는 $\beta$를 컴퓨터를 활용하여 구하는 문제를 생각해보자.</p>
+<p><code>-</code> $loss=(\frac{1}{2}\beta-1)^2$를 최소하는 $\beta$를 컴퓨터를 활용하여 구하는 문제를 생각해보자. (답은 이미 알고 있어요, $\beta=2$입니다.)</p>
 
 </div>
 </div>
@@ -687,36 +833,313 @@ array([[ -127.59753624],
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) beta = [-10, -9.99, -9.98, ... , 9.99, 10] 와 같은 수열을 만든다.</p>
+<p>(2) 각 지점에서 (beta/2 -1)^2 을 계산한다.</p>
+<p>(3) (2)의 결과를 가장 작게 만드는 값을 고른다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="구현코드">
 <a class="anchor" href="#%EA%B5%AC%ED%98%84%EC%BD%94%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>구현코드<a class="anchor-link" href="#%EA%B5%AC%ED%98%84%EC%BD%94%EB%93%9C"> </a>
 </h4>
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">tnp</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> 
+<span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loss</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(100,), dtype=float64, numpy=
+array([3.60000000e+01, 3.47980818e+01, 3.36165697e+01, 3.24554637e+01,
+       3.13147638e+01, 3.01944700e+01, 2.90945822e+01, 2.80151005e+01,
+       2.69560249e+01, 2.59173554e+01, 2.48990919e+01, 2.39012346e+01,
+       2.29237833e+01, 2.19667381e+01, 2.10300990e+01, 2.01138659e+01,
+       1.92180390e+01, 1.83426181e+01, 1.74876033e+01, 1.66529946e+01,
+       1.58387920e+01, 1.50449954e+01, 1.42716049e+01, 1.35186205e+01,
+       1.27860422e+01, 1.20738700e+01, 1.13821039e+01, 1.07107438e+01,
+       1.00597898e+01, 9.42924191e+00, 8.81910009e+00, 8.22936435e+00,
+       7.66003469e+00, 7.11111111e+00, 6.58259361e+00, 6.07448220e+00,
+       5.58677686e+00, 5.11947760e+00, 4.67258443e+00, 4.24609734e+00,
+       3.84001632e+00, 3.45434139e+00, 3.08907254e+00, 2.74420977e+00,
+       2.41975309e+00, 2.11570248e+00, 1.83205795e+00, 1.56881951e+00,
+       1.32598714e+00, 1.10356086e+00, 9.01540659e-01, 7.19926538e-01,
+       5.58718498e-01, 4.17916539e-01, 2.97520661e-01, 1.97530864e-01,
+       1.17947148e-01, 5.87695133e-02, 1.99979594e-02, 1.63248648e-03,
+       3.67309458e-03, 2.61197837e-02, 6.89725538e-02, 1.32231405e-01,
+       2.15896337e-01, 3.19967350e-01, 4.44444444e-01, 5.89327620e-01,
+       7.54616876e-01, 9.40312213e-01, 1.14641363e+00, 1.37292113e+00,
+       1.61983471e+00, 1.88715437e+00, 2.17488011e+00, 2.48301194e+00,
+       2.81154984e+00, 3.16049383e+00, 3.52984389e+00, 3.91960004e+00,
+       4.32976227e+00, 4.76033058e+00, 5.21130497e+00, 5.68268544e+00,
+       6.17447199e+00, 6.68666463e+00, 7.21926334e+00, 7.77226814e+00,
+       8.34567901e+00, 8.93949597e+00, 9.55371901e+00, 1.01883481e+01,
+       1.08433833e+01, 1.15188246e+01, 1.22146720e+01, 1.29309254e+01,
+       1.36675849e+01, 1.44246505e+01, 1.52021222e+01, 1.60000000e+01])&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> tnp.argmin</p>
+<p>(예비학습)</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=int64, numpy=3&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=int64, numpy=2&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 풀이</p>
+<p>예비학습 끝</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 최소지점 주변값과 비교</p>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tnp</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=int64, numpy=59&gt;</pre>
+</div>
+
+</div>
 
 </div>
 </div>
+
 </div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span><span class="p">[</span><span class="mi">59</span><span class="p">]</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float64, numpy=1.9191919191919187&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span><span class="p">[</span><span class="mi">60</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float64, numpy=2.121212121212121&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loss</span><span class="p">[</span><span class="mi">59</span><span class="p">],</span><span class="n">loss</span><span class="p">[</span><span class="mi">60</span><span class="p">]</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&lt;tf.Tensor: shape=(), dtype=float64, numpy=0.0016324864809713507&gt;,
+ &lt;tf.Tensor: shape=(), dtype=float64, numpy=0.0036730945821854847&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -749,221 +1172,6 @@ array([[ -127.59753624],
 <li>$\to$ 따라서 $\beta=2$ 이후로는 탐색할 필요가 없다 </li>
 </ul>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="방법2:-gradient-descent">
-<a class="anchor" href="#%EB%B0%A9%EB%B2%952:-gradient-descent" aria-hidden="true"><span class="octicon octicon-link"></span></a>방법2: gradient descent<a class="anchor-link" href="#%EB%B0%A9%EB%B2%952:-gradient-descent"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="알고리즘!">
-<a class="anchor" href="#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98!" aria-hidden="true"><span class="octicon octicon-link"></span></a>알고리즘!<a class="anchor-link" href="#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98!"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>(1) 임의의 초기값을 선정하고 loss를 계산한다.</p>
-<ul>
-<li>$\beta=-5 \to loss(-5)=(-5/2-1)^2=$</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>(2) 임의의 초기값에서 좌우로 약간씩 이동해보고 loss를 계산한다.</p>
-<ul>
-<li>왼쪽으로 이동: $\beta=-5.01,\quad loss(5.01)=$</li>
-<li>오른쪽으로 이동: $\beta=-4.99, \quad loss(-4.99)=$ </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>(3) (2)의 결과를 보고 어느쪽으로 이동하는것이 유리한지 따져보고 <code>유리한 방향으로</code> 이동한다.</p>
-<ul>
-<li>$\beta=-4.99$ 로 이동 </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>(4) (2)-(3) 의 과정을 반복한다. <strong>왼쪽/오른쪽 모두 가봐도 유리한 지점이 없다면 알고리즘을 멈춘다.</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="잠깐-알고리즘-감상">
-<a class="anchor" href="#%EC%9E%A0%EA%B9%90-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%90%EC%83%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>잠깐 알고리즘 감상<a class="anchor-link" href="#%EC%9E%A0%EA%B9%90-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%90%EC%83%81"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정지조건?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> [-10,10] 이외에 해가 존재?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\beta=2$를 찾았다면?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 알고리즘해석</p>
-<ul>
-<li>(2)의 과정: </li>
-<li>(3)의 과정: </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p></p>
-<div class="flash">
-    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>이처럼 손실함수의 기울기(=경사)를 계산하여 점차적으로 가중치를 업데이트 하는 방식을 경사하강법이라고 부른다. 
-</div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="왼쪽/오른쪽중에-어디로-갈지-어떻게-판단하는-과정을-수식화?">
-<a class="anchor" href="#%EC%99%BC%EC%AA%BD/%EC%98%A4%EB%A5%B8%EC%AA%BD%EC%A4%91%EC%97%90-%EC%96%B4%EB%94%94%EB%A1%9C-%EA%B0%88%EC%A7%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%8C%90%EB%8B%A8%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%9D%84-%EC%88%98%EC%8B%9D%ED%99%94?" aria-hidden="true"><span class="octicon octicon-link"></span></a>왼쪽/오른쪽중에 어디로 갈지 어떻게 판단하는 과정을 수식화?<a class="anchor-link" href="#%EC%99%BC%EC%AA%BD/%EC%98%A4%EB%A5%B8%EC%AA%BD%EC%A4%91%EC%97%90-%EC%96%B4%EB%94%94%EB%A1%9C-%EA%B0%88%EC%A7%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%8C%90%EB%8B%A8%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%9D%84-%EC%88%98%EC%8B%9D%ED%99%94?"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 미분계수가 + - ?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 수식화</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="hoxy,-알고리즘을-좀-개선할수-있을까?">
-<a class="anchor" href="#hoxy,-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%A2%80-%EA%B0%9C%EC%84%A0%ED%95%A0%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C?" aria-hidden="true"><span class="octicon octicon-link"></span></a>hoxy, 알고리즘을 좀 개선할수 있을까?<a class="anchor-link" href="#hoxy,-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%A2%80-%EA%B0%9C%EC%84%A0%ED%95%A0%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C?"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 왜 0.01씩?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\beta=-10$ 일 경우의 접선의 기울기? $\beta=-4$ 일때 접선의 기울기?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 아이디어</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 수식화</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>
-$$\beta_{next} \leftarrow \beta_{old} -\alpha \left[\frac{\partial}{\partial \beta} loss(\beta)\right]_{\beta=\beta_{old}}$$
-</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>아까 수식이랑 좀 다르다? </li>
-<li>$\alpha$의 조건 </li>
-<li>$\alpha$의 의미 </li>
-<li>$\beta=-10$ 에서 $0.01$만큼 움직이기 위한 $\alpha$의 설정 </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="구현코드">
-<a class="anchor" href="#%EA%B5%AC%ED%98%84%EC%BD%94%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>구현코드<a class="anchor-link" href="#%EA%B5%AC%ED%98%84%EC%BD%94%EB%93%9C"> </a>
-</h4>
 </div>
 </div>
 </div>
