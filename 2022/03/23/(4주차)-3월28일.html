@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -146,7 +146,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h4"><a href="#알고리즘">알고리즘 </a></li>
 <li class="toc-entry toc-h4"><a href="#잠깐-알고리즘-감상">잠깐 알고리즘 감상 </a></li>
 <li class="toc-entry toc-h4"><a href="#왼쪽/오른쪽중에-어디로-갈지-어떻게-판단하는-과정을-수식화?">왼쪽/오른쪽중에 어디로 갈지 어떻게 판단하는 과정을 수식화? </a></li>
-<li class="toc-entry toc-h4"><a href="#hoxy,-알고리즘을-좀-개선할수-있을까?">hoxy, 알고리즘을 좀 개선할수 있을까? </a></li>
+<li class="toc-entry toc-h4"><a href="#혹시,-알고리즘을-좀-개선할수-있을까?">혹시, 알고리즘을 좀 개선할수 있을까? </a></li>
 <li class="toc-entry toc-h4"><a href="#학습률">학습률 </a>
 <ul>
 <li class="toc-entry toc-h5"><a href="#[시각화코드-예비학습]">[시각화코드 예비학습] </a></li>
@@ -310,24 +310,124 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>(1) 임의의 초기값을 선정하고 loss를 계산한다.</p>
 <ul>
-<li>$\beta=-5 \to loss(-5)=(-5/2-1)^2=$</li>
+<li>$\beta=-5 \to loss(-5)=(-5/2-1)^2=12.25$</li>
 </ul>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12.25</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>(2) 임의의 초기값에서 좌우로 약간씩 이동해보고 loss를 계산한다.</p>
 <ul>
-<li>왼쪽으로 이동: $\beta=-5.01,\quad loss(5.01)=$</li>
-<li>오른쪽으로 이동: $\beta=-4.99, \quad loss(-4.99)=$ </li>
+<li>왼쪽으로 이동: $\beta=-5.01,\quad loss(5.01)=12.285025$</li>
+<li>오른쪽으로 이동: $\beta=-4.99, \quad loss(-4.99)=12.215025
+$ </li>
 </ul>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="mf">5.01</span> <span class="o">/</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12.285025</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="o">-</span><span class="mf">4.99</span> <span class="o">/</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>12.215025</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -391,6 +491,15 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>(2)의 의미: 미분을 하라는 뜻</p>
+<p>(3)의 의미: update</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="왼쪽/오른쪽중에-어디로-갈지-어떻게-판단하는-과정을-수식화?">
 <a class="anchor" href="#%EC%99%BC%EC%AA%BD/%EC%98%A4%EB%A5%B8%EC%AA%BD%EC%A4%91%EC%97%90-%EC%96%B4%EB%94%94%EB%A1%9C-%EA%B0%88%EC%A7%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%8C%90%EB%8B%A8%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%9D%84-%EC%88%98%EC%8B%9D%ED%99%94?" aria-hidden="true"><span class="octicon octicon-link"></span></a>왼쪽/오른쪽중에 어디로 갈지 어떻게 판단하는 과정을 수식화?<a class="anchor-link" href="#%EC%99%BC%EC%AA%BD/%EC%98%A4%EB%A5%B8%EC%AA%BD%EC%A4%91%EC%97%90-%EC%96%B4%EB%94%94%EB%A1%9C-%EA%B0%88%EC%A7%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%8C%90%EB%8B%A8%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%9D%84-%EC%88%98%EC%8B%9D%ED%99%94?"> </a>
 </h4>
@@ -401,6 +510,10 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 미분계수의 의미</p>
+<ul>
+<li>미분계수가 양수이다: 왼쪽으로 이동 = 빼기 0.01 </li>
+<li>미분계수가 음수이다: 오른쪽으로 이동 = 더하기 0.01 </li>
+</ul>
 
 </div>
 </div>
@@ -426,8 +539,8 @@ $$\beta_{next} = \begin{cases} \beta_{old} - 0.01 &amp; loss'(\beta_{old})&gt;0 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="hoxy,-알고리즘을-좀-개선할수-있을까?">
-<a class="anchor" href="#hoxy,-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%A2%80-%EA%B0%9C%EC%84%A0%ED%95%A0%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C?" aria-hidden="true"><span class="octicon octicon-link"></span></a>hoxy, 알고리즘을 좀 개선할수 있을까?<a class="anchor-link" href="#hoxy,-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%A2%80-%EA%B0%9C%EC%84%A0%ED%95%A0%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C?"> </a>
+<h4 id="혹시,-알고리즘을-좀-개선할수-있을까?">
+<a class="anchor" href="#%ED%98%B9%EC%8B%9C,-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%A2%80-%EA%B0%9C%EC%84%A0%ED%95%A0%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C?" aria-hidden="true"><span class="octicon octicon-link"></span></a>혹시, 알고리즘을 좀 개선할수 있을까?<a class="anchor-link" href="#%ED%98%B9%EC%8B%9C,-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84-%EC%A2%80-%EA%B0%9C%EC%84%A0%ED%95%A0%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C?"> </a>
 </h4>
 </div>
 </div>
@@ -495,7 +608,9 @@ $$\beta_{next} = \begin{cases} \beta_{old} - 0.01 &amp; loss'(\beta_{old})&gt;0 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 아이디어</p>
+<ul>
+<li>$\beta=-10$에서 0.01만큼 이동했다면 $\beta=-4$에서 0.005만큼 이동해야함 </li>
+</ul>
 
 </div>
 </div>
@@ -522,10 +637,10 @@ $$\beta_{next} \leftarrow \beta_{old} -\alpha \left[\frac{\partial}{\partial \be
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>아까 수식이랑 좀 다르다?</li>
-<li>$\alpha$의 가정 </li>
-<li>$\alpha$의 의미: </li>
-<li>$\alpha$의 설정: </li>
+<li>아까 수식이랑 좀 다르다? 달라보이지만 $\beta_{old}$를 이동시켜 $\beta_{next}$를 만든다는 개념은 같음 </li>
+<li>$\alpha&gt;0$ </li>
+<li>$\alpha$의 의미: 한번 업데이트할때 움직이는 보폭</li>
+<li>$\alpha=\frac{0.01}{6}$ 로 만약 설정하면 $\beta=-10$일때 오른쪽으로 0.01움직임 </li>
 </ul>
 
 </div>
@@ -547,6 +662,216 @@ $$\beta_{next} \leftarrow \beta_{old} -\alpha \left[\frac{\partial}{\partial \be
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Tensor: shape=(), dtype=float32, numpy=-6.0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="o">/</span><span class="mi">6</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Variable 'UnreadVariable' shape=() dtype=float32, numpy=-9.99&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>iter2</strong> beta=-9.99</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=-9.99&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Variable 'UnreadVariable' shape=() dtype=float32, numpy=-9.980008&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -561,19 +886,98 @@ $$\beta_{next} \leftarrow \beta_{old} -\alpha \left[\frac{\partial}{\partial \be
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>iter2</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>for문</strong></p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">)</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span> 
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span> 
+        <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> 
+    <span class="n">beta</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span><span class="n">beta</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">beta</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=1.997125&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
