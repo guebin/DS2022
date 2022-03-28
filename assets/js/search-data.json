@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Title",
-            "content": "!git add . !git commit -m . !git push . [master e835379] . 2 files changed, 11 insertions(+), 14 deletions(-) Enumerating objects: 9, done. Counting objects: 100% (9/9), done. Delta compression using up to 16 threads Compressing objects: 100% (5/5), done. Writing objects: 100% (5/5), 598 bytes | 598.00 KiB/s, done. Total 5 (delta 4), reused 0 (delta 0) remote: Resolving deltas: 100% (4/4), completed with 4 local objects. To https://github.com/guebin/DS2022.git d62c2f9..e835379 master -&gt; master .",
+            "content": "!git add . !git commit -m . !git push . [master b399d61] . 2 files changed, 7 insertions(+), 15 deletions(-) Enumerating objects: 9, done. Counting objects: 100% (9/9), done. Delta compression using up to 16 threads Compressing objects: 100% (5/5), done. Writing objects: 100% (5/5), 516 bytes | 516.00 KiB/s, done. Total 5 (delta 4), reused 0 (delta 0) remote: Resolving deltas: 100% (4/4), completed with 4 local objects. To https://github.com/guebin/DS2022.git e835379..b399d61 master -&gt; master . !git config --global credential.helper cache --timeout=36000 .",
             "url": "https://guebin.github.io/DS2022/2022/03/27/Untitled.html",
             "relUrl": "/2022/03/27/Untitled.html",
             "date": " • Mar 27, 2022"
