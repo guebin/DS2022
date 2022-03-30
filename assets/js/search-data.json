@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "(5주차) 3월30일 -- draft",
-            "content": "&#44053;&#51032;&#50689;&#49345; . . imports . import tensorflow as tf import numpy as np import matplotlib.pyplot as plt . import tensorflow.experimental.numpy as tnp . tnp.experimental_enable_numpy_behavior() . &#52572;&#51201;&#54868;&#51032; &#47928;&#51228; . tf .",
+            "content": "&#44053;&#51032;&#50689;&#49345; . . imports . import tensorflow as tf import numpy as np import matplotlib.pyplot as plt . import tensorflow.experimental.numpy as tnp . tnp.experimental_enable_numpy_behavior() . &#52572;&#51201;&#54868;&#51032; &#47928;&#51228; . &#54924;&#44480;&#48516;&#49437; . - ${ bf y} approx 4 + 2.5 { bf x}$ . tnp.random.seed(43052) N = 500 x = tnp.linspace(0,1,N) epsilon = tnp.random.randn(N)*0.5 .",
             "url": "https://guebin.github.io/DS2022/2022/03/29/Untitled.html",
             "relUrl": "/2022/03/29/Untitled.html",
             "date": " • Mar 29, 2022"
