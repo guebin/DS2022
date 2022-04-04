@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      6 min read
     
 </span></p>
 
@@ -169,14 +169,6 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#tf.keras.Sequential">tf.keras.Sequential </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#풀이1:-벡터버전,-사용자정의-손실함수">풀이1: 벡터버전, 사용자정의 손실함수 </a></li>
-<li class="toc-entry toc-h4"><a href="#풀이2:-벡터버전,-net.compile의-옵션으로-손실함수-지정">풀이2: 벡터버전, net.compile의 옵션으로 손실함수 지정 </a></li>
-<li class="toc-entry toc-h4"><a href="#풀이3:-스칼라버전,-net.compile의-옵션으로-손실함수-지정">풀이3: 스칼라버전, net.compile의 옵션으로 손실함수 지정 </a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#tf.keras.Model">tf.keras.Model </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#풀이1:-벡터버전">풀이1: 벡터버전 </a></li>
-<li class="toc-entry toc-h4"><a href="#풀이2:-스칼라버전">풀이2: 스칼라버전 </a></li>
 </ul>
 </li>
 </ul>
@@ -3382,7 +3374,7 @@ array([[2.58366061],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7effdb6b75b0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f002cdba380&gt;</pre>
 </div>
 
 </div>
@@ -3415,7 +3407,7 @@ array([[2.58366061],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;tf.Variable 'dense_1/kernel:0' shape=(2, 1) dtype=float32, numpy=
+<pre>[&lt;tf.Variable 'dense_4/kernel:0' shape=(2, 1) dtype=float32, numpy=
  array([[2.5836723],
         [3.9330251]], dtype=float32)&gt;]</pre>
 </div>
@@ -3428,99 +3420,6 @@ array([[2.58366061],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="풀이2:-벡터버전,-net.compile의-옵션으로-손실함수-지정">
-<a class="anchor" href="#%ED%92%80%EC%9D%B42:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-net.compile%EC%9D%98-%EC%98%B5%EC%85%98%EC%9C%BC%EB%A1%9C-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-%EC%A7%80%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이2: 벡터버전, net.compile의 옵션으로 손실함수 지정<a class="anchor-link" href="#%ED%92%80%EC%9D%B42:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84,-net.compile%EC%9D%98-%EC%98%B5%EC%85%98%EC%9C%BC%EB%A1%9C-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-%EC%A7%80%EC%A0%95"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 포인트</p>
-<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 네트워크 컴파일 = 아키텍처 + 손실함수 + 옵티마이저</span>
-<span class="n">net</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="s1">'mse'</span><span class="p">)</span> <span class="c1"># net.compile의 옵션으로 손실함수 지정</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="풀이3:-스칼라버전,-net.compile의-옵션으로-손실함수-지정">
-<a class="anchor" href="#%ED%92%80%EC%9D%B43:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84,-net.compile%EC%9D%98-%EC%98%B5%EC%85%98%EC%9C%BC%EB%A1%9C-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-%EC%A7%80%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이3: 스칼라버전, net.compile의 옵션으로 손실함수 지정<a class="anchor-link" href="#%ED%92%80%EC%9D%B43:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84,-net.compile%EC%9D%98-%EC%98%B5%EC%85%98%EC%9C%BC%EB%A1%9C-%EC%86%90%EC%8B%A4%ED%95%A8%EC%88%98-%EC%A7%80%EC%A0%95"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 포인트</p>
-<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: use_bias=True</span>
-<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span><span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="tf.keras.Model">
-<a class="anchor" href="#tf.keras.Model" aria-hidden="true"><span class="octicon octicon-link"></span></a>tf.keras.Model<a class="anchor-link" href="#tf.keras.Model"> </a>
-</h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="풀이1:-벡터버전">
-<a class="anchor" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이1: 벡터버전<a class="anchor-link" href="#%ED%92%80%EC%9D%B41:-%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 포인트</p>
-<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 네트워크 설계 (Xi -&gt; yihat의 과정을 공책에 쭉 쓰는 느낌)</span>
-<span class="n">Xi</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,))</span> 
-<span class="n">l1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span><span class="n">use_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> 
-<span class="n">yihat</span> <span class="o">=</span> <span class="n">l1</span><span class="p">(</span><span class="n">Xi</span><span class="p">)</span> 
-<span class="n">net</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">Xi</span><span class="p">,</span><span class="n">yihat</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="풀이2:-스칼라버전">
-<a class="anchor" href="#%ED%92%80%EC%9D%B42:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>풀이2: 스칼라버전<a class="anchor-link" href="#%ED%92%80%EC%9D%B42:-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 포인트</p>
-<div class="highlight"><pre><span></span><span class="c1">## 포인트코드: 네트워크 설계 (입력차원 조심, 바이어스 조심) </span>
-<span class="n">xi</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span> 
-<span class="n">l1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span><span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 </div>
 
 
