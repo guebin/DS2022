@@ -1179,20 +1179,6 @@ $${\bf y}\approx 2.5 +4*x$$<p></p>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>2022-04-06 13:34:09.328641: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -1372,7 +1358,7 @@ $${\bf y}\approx 2.5 +4*x$$<p></p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7f72980b31c0&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f972c807640&gt;</pre>
 </div>
 
 </div>
@@ -1581,7 +1567,7 @@ $${\bf y}\approx 2.5 +4*x$$<p></p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;keras.callbacks.History at 0x7f729068b850&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f96bc1cfa00&gt;</pre>
 </div>
 
 </div>
@@ -1724,28 +1710,10 @@ $${\bf y}\approx 2.5 +4*x$$<p></p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">net2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
-<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">use_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">net2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">use_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-fg">  Input </span><span class="ansi-green-fg">In [38]</span>
-<span class="ansi-red-fg">    net2.add(tf.keras.layers.Dense(1,use_bias=False,input_dim=2)</span>
-                                                                 ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> incomplete input
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1775,7 +1743,7 @@ $${\bf y}\approx 2.5 +4*x$$<p></p>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [39]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [46]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">net1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">weights</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/engine/training.py:2542</span>, in <span class="ansi-cyan-fg">Model.weights</span><span class="ansi-blue-fg">(self)</span>
@@ -1816,7 +1784,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <span class="ansi-green-intense-fg ansi-bold">   2738</span>                    <span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">Weights are created when the Model is first called on </span><span style="color: rgb(175,0,0)">'</span>
 <span class="ansi-green-intense-fg ansi-bold">   2739</span>                    <span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">inputs or `build()` is called with an `input_shape`.</span><span style="color: rgb(175,0,0)">'</span>)
 
-<span class="ansi-red-fg">ValueError</span>: Weights for model sequential_4 have not yet been created. Weights are created when the Model is first called on inputs or `build()` is called with an `input_shape`.</pre>
+<span class="ansi-red-fg">ValueError</span>: Weights for model sequential_10 have not yet been created. Weights are created when the Model is first called on inputs or `build()` is called with an `input_shape`.</pre>
 </div>
 </div>
 
@@ -1848,9 +1816,9 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;tf.Variable 'dense_4/kernel:0' shape=(2, 1) dtype=float32, numpy=
- array([[-1.053657 ],
-        [ 1.3536845]], dtype=float32)&gt;]</pre>
+<pre>[&lt;tf.Variable 'dense_10/kernel:0' shape=(2, 1) dtype=float32, numpy=
+ array([[ 0.18078029],
+        [-0.8703779 ]], dtype=float32)&gt;]</pre>
 </div>
 
 </div>
@@ -1884,7 +1852,7 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-Input <span class="ansi-green-fg">In [41]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+Input <span class="ansi-green-fg">In [48]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">net1</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">summary</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
 
 File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-packages/keras/engine/training.py:2579</span>, in <span class="ansi-cyan-fg">Model.summary</span><span class="ansi-blue-fg">(self, line_length, positions, print_fn, expand_nested)</span>
@@ -1936,11 +1904,11 @@ File <span class="ansi-green-fg">~/anaconda3/envs/py310/lib/python3.10/site-pack
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model: "sequential_3"
+<pre>Model: "sequential_11"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- dense_4 (Dense)             (None, 1)                 2         
+ dense_10 (Dense)            (None, 1)                 2         
                                                                  
 =================================================================
 Total params: 2
