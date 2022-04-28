@@ -244,7 +244,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>(motivation example)</strong></p>
+<p><strong>(예제)</strong></p>
 
 </div>
 </div>
@@ -302,7 +302,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>왜??</p>
+<p>왜?? $p$가 0.5라고 주장할 수 있는 이론적 근거, 혹은 논리체계가 무엇인가?</p>
 
 </div>
 </div>
@@ -487,7 +487,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 확률이라는 말을 쓸 수 없지만 확률의 느낌은 있음 -&gt; 가능도라는 말을 쓰자.</p>
 <ul>
-<li>0.0256 = $p$가 0.2일 경우 샘플 (0,1,0,1)이 얻어질 확률 = $p$가 0.2일 가능도 </li>
+<li>0.0256 $=$ $p$가 0.2일 경우 샘플 (0,1,0,1)이 얻어질 확률 $=$ $p$가 0.2일 가능도 </li>
 </ul>
 
 </div>
@@ -530,11 +530,19 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 용어정리</p>
+<p><code>-</code> 잠깐 용어정리</p>
 <ul>
-<li>가능도함수 = 우도함수 = likelihood function = $L(p)$</li>
-<li>$\text{argmax}_p L(p)=\hat{p}^{mle}=\hat{p}$ = $p$의 maximum likelihood estimator = p의 MLE </li>
+<li>가능도함수 $=$ 우도함수 $=$ likelihood function $:=$ $L(p)$</li>
+<li>$p$의 maximum likelihood estimator $=$ p의 MLE $:=$ $\hat{p}^{mle}$ $=$ $\text{argmax}_p L(p)$ $=$ $\hat{p}$  </li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(예제의 풀이)</p>
 
 </div>
 </div>
@@ -544,12 +552,8 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이 예제의 경우 가능도함수를 정의하자.</p>
 <ul>
-<li>
-<p>$L(p)$ = p일 가능도 = p가 모수일때 샘플 (0,1,0,1)이 얻어질 확률 = $\prod_{i=1}^{4}$ p가 모수일때 샘플 $x_i$가 얻어질 확률 = $\prod_{i=1}^{4} f(x_i;p)$</p>
-</li>
-<li>
-<p>$f(x_i;p)=p^{x_i}(1-p)^{1-x_i}$</p>
-</li>
+<li>$L(p)$: $p$의 가능도함수 = $p$가 모수일때 샘플 (0,1,0,1)이 얻어질 확률 = $p$가 모수일때 $x_1$이 0일 확률 $\times \dots \times$ $p$가 모수일때 $x_4$가 1일 확률 </li>
+<li>$L(p)=\prod_{i=1}^{4} f(x_i;p)= \prod_{i=1}^{4}p^{x_i}(1-p)^{1-x_i}$</li>
 </ul>
 
 </div>
@@ -558,10 +562,11 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 일반화: $X_1,\dots,X_n \overset{iid}{\sim} Ber(p)$ 일때 $p$의 likelihood function은 $\prod_{i=1}^{n}p^{x_i}(1-p)^{1-x_i}$</p>
-<ul>
-<li>$x_1,\dots,x_n$이 pdf가 $f(x)$인 분포에서 뽑힌 서로 독립인 샘플이라고 하면 likelihood function은 $\prod_{i=1}^{n}f(x_i)$이다. </li>
-</ul>
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>참고로 이 과정을 일반화 하면 $X_1,\dots,X_n \overset{iid}{\sim} Ber(p)$ 일때 $p$의 likelihood function은 $\prod_{i=1}^{n}p^{x_i}(1-p)^{1-x_i}$ 라고 볼 수 있다. 
+</div>
 
 </div>
 </div>
@@ -569,11 +574,22 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 이 예제의 경우 우도함수와 최대우도추정량을 구하면</p>
-<ul>
-<li>$L(p)=p^2(1-p)^2=\big(p(1-p)\big)^2$</li>
-<li>$L(p)$를 최대화하는 $p$는 0.5이다. 따라서 $\hat{p}^{mle}=0.5$</li>
-</ul>
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>여기서 더 일반화하면 $x_1,\dots,x_n$이 pdf가 $f(x)$인 분포에서 뽑힌 서로 독립인 샘플이라고 하면 likelihood function은 $\prod_{i=1}^{n}f(x_i)$라고 볼 수 있다. 
+</div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 이 예제의 경우 $p$의 최대우도추정량을 구하면</p>
+<p>
+$$\hat{p}^{mle} = \text{argmax}_p L(p) = \text{argmax}_p p^2(1-p)^2= \frac{1}{2}$$
+</p>
 
 </div>
 </div>
