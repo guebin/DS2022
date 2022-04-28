@@ -577,7 +577,7 @@ window.onload = wrap_img;
 <p></p>
 <div class="flash">
     <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>여기서 더 일반화하면 $x_1,\dots,x_n$이 pdf가 $f(x)$인 분포에서 뽑힌 서로 독립인 샘플이라고 하면 likelihood function은 $\prod_{i=1}^{n}f(x_i)$라고 볼 수 있다. 
+    <strong>Note: </strong>더 일반화: $x_1,\dots,x_n$이 pdf가 $f(x)$인 분포에서 뽑힌 서로 독립인 샘플일때 likelihood function은 $\prod_{i=1}^{n}f(x_i)$라고 볼 수 있다. 
 </div>
 
 </div>
@@ -588,7 +588,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 이 예제의 경우 $p$의 최대우도추정량을 구하면</p>
 <p>
-$$\hat{p}^{mle} = \text{argmax}_p L(p) = \text{argmax}_p p^2(1-p)^2= \frac{1}{2}$$
+$$\hat{p}^{mle} = \text{argmax}_p L(p) = \text{argmax}_p  \big\{ p^2(1-p)^2 \big\}= \frac{1}{2}$$
 </p>
 
 </div>
