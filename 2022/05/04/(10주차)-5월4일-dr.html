@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      11 min read
     
 </span></p>
 
@@ -136,7 +136,12 @@ window.onload = wrap_img;
     <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h3"><a href="#로지스틱-모형-(1):-활성화함수로-sigmoid-선택">로지스틱 모형 (1): 활성화함수로 sigmoid 선택 </a></li>
 <li class="toc-entry toc-h3"><a href="#로지스틱-모형-(2):-활성화함수로-softmax-선택">로지스틱 모형 (2): 활성화함수로 softmax 선택 </a></li>
-<li class="toc-entry toc-h3"><a href="#모형의-비교">모형의 비교 </a></li>
+<li class="toc-entry toc-h3"><a href="#sigmoid,-softmax">sigmoid, softmax </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#softmax는-sigmoid의-확장형">softmax는 sigmoid의 확장형 </a></li>
+<li class="toc-entry toc-h4"><a href="#클래스의-수가-2인-경우-softmax-vs-sigmoid">클래스의 수가 2인 경우 softmax vs sigmoid </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h3"><a href="#분류할-클래스가-3개-이상일-경우-신경망-모형의-설계">분류할 클래스가 3개 이상일 경우 신경망 모형의 설계 </a></li>
 <li class="toc-entry toc-h3"><a href="#Fashion_MNIST-다중분류">Fashion_MNIST 다중분류 </a></li>
 </ul><!--
@@ -409,7 +414,7 @@ $$[{\boldsymbol y}_1 ~ {\boldsymbol y}_2] \propto  [ {\bf X}{\bf W}_1  ~ {\bf X}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-$$\hat{\boldsymbol{y}}=[\hat{\boldsymbol y}_1 ~ \hat{\boldsymbol y}_2] = \big[ \frac{\exp({\bf X}\hat_1+\hat{b}_1)}{\exp({\bf X}\hat{\bf W}_1+\hat{b}_1)+\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}  ~~ \frac{\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}{\exp({\bf X}\hat{\bf W}_1+\hat{b}_1)+\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}  \big]$$<p></p>
+$$\hat{\boldsymbol{y}}=[\hat{\boldsymbol y}_1 ~ \hat{\boldsymbol y}_2] =  \big[ \frac{\exp({\bf X}\hat_1+\hat{b}_1)}{\exp({\bf X}\hat{\bf W}_1+\hat{b}_1)+\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}  ~~ \frac{\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}{\exp({\bf X}\hat{\bf W}_1+\hat{b}_1)+\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}  \big]$$<p></p>
 
 </div>
 </div>
@@ -428,7 +433,7 @@ $$\hat{\boldsymbol{y}}=[\hat{\boldsymbol y}_1 ~ \hat{\boldsymbol y}_2] = \big[ \
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 그런데 조금 따져보면 (3)도 만족된다는 것을 알 수 있다. (로지스틱과 소프트맥스 Section 참고)</p>
+<p><code>-</code> 그런데 조금 따져보면 (3)도 만족된다는 것을 알 수 있다. (sigmoid, softmax Section 참고)</p>
 
 </div>
 </div>
@@ -444,18 +449,20 @@ $$\hat{\boldsymbol{y}}=[\hat{\boldsymbol y}_1 ~ \hat{\boldsymbol y}_2] = \big[ \
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>
-$$\hat{\boldsymbol y} = \text{softmax}({\bf X}{\bf W} + {\boldsymbol b}) = \big[ \frac{\exp({\bf X}\hat{{\bf W}}_1+\hat{b}_1)}{\exp({\bf X}\hat{\bf W}_1+\hat{b}_1)+\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}  ~~ \frac{\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}{\exp({\bf X}\hat{\bf W}_1+\hat{b}_1)+\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}  \big]$$
-</p>
-
+$$
+\begin{align}
+&amp; \hat{\boldsymbol y} = \text{softmax}({\bf X}{\bf W} + {\boldsymbol b}) \\ 
+&amp;= \big[ \frac{\exp({\bf X}\hat_1+\hat{b}_1)}{\exp({\bf X}\hat{\bf W}_1+\hat{b}_1)+\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}  ~~ \frac{\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}{\exp({\bf X}\hat{\bf W}_1+\hat{b}_1)+\exp({\bf X}\hat{\bf W}_2+\hat{b}_2)}  \big]
+\end{align}
+$$
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="모형의-비교">
-<a class="anchor" href="#%EB%AA%A8%ED%98%95%EC%9D%98-%EB%B9%84%EA%B5%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>모형의 비교<a class="anchor-link" href="#%EB%AA%A8%ED%98%95%EC%9D%98-%EB%B9%84%EA%B5%90"> </a>
+<h3 id="sigmoid,-softmax">
+<a class="anchor" href="#sigmoid,-softmax" aria-hidden="true"><span class="octicon octicon-link"></span></a>sigmoid, softmax<a class="anchor-link" href="#sigmoid,-softmax"> </a>
 </h3>
 </div>
 </div>
@@ -463,9 +470,18 @@ $$\hat{\boldsymbol y} = \text{softmax}({\bf X}{\bf W} + {\boldsymbol b}) = \big[
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 수식장난 
+<h4 id="softmax는-sigmoid의-확장형">
+<a class="anchor" href="#softmax%EB%8A%94-sigmoid%EC%9D%98-%ED%99%95%EC%9E%A5%ED%98%95" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>softmax는 sigmoid의 확장형</strong><a class="anchor-link" href="#softmax%EB%8A%94-sigmoid%EC%9D%98-%ED%99%95%EC%9E%A5%ED%98%95"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 아래의 수식을 관찰하자. 
 
-$$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_0+\beta_1 x_i)}{e^0+exp(\beta_0+\beta_1x_i)}$$
+$$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_0+\beta_1 x_i)}{e^0+\exp(\beta_0+\beta_1x_i)}$$
 </p>
 
 </div>
@@ -474,10 +490,10 @@ $$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 통찰</p>
+<p><code>-</code> 1을 $e^0$로 해석하면 모형2의 해석을 아래와 같이 모형1의 해석으로 적용할수 있다.</p>
 <ul>
-<li>모형2: ${\bf X}{\bf W}_1 +b_1$ 와 ${\bf X}{\bf W}_2 +b_2$ 의 크기를 비교하고 확률 결정</li>
-<li>모형1: ${\bf X}{\bf W} +b$와 $0$의 크기를 비교하고 확률 결정 (${\bf X}{\bf W} +b$의 row값이 양수이면 1로 예측하고 음수이면 0으로 예측 </li>
+<li>모형2: ${\bf X}\hat{\bf W}_1 +\hat{b}_1$ 와 ${\bf X}\hat{\bf W}_2 +\hat{b}_2$ 의 크기를 비교하고 확률 결정</li>
+<li>모형1: ${\bf X}\hat{\bf W} +\hat{b}$ 와 $0$의 크기를 비교하고 확률 결정 = ${\bf X}\hat{\bf W} +\hat{b}$의 row값이 양수이면 1로 예측하고 음수이면 0으로 예측</li>
 </ul>
 
 </div>
@@ -486,7 +502,7 @@ $$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 파라메터의 수</p>
+<p><code>-</code> 이항분포를 차원이 2인 다항분포로 해석가능한 것 처럼, sigmoid는 차원이 2인 softmax로 해석가능하다. 즉 다항분포가 이항분포의 확장형으로 해석가능한것 처럼 softmax도 sigmoid의 확장형으로 해석가능하다.</p>
 
 </div>
 </div>
@@ -494,7 +510,42 @@ $$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 표현력</p>
+<h4 id="클래스의-수가-2인-경우-softmax-vs-sigmoid">
+<a class="anchor" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%88%98%EA%B0%80-2%EC%9D%B8-%EA%B2%BD%EC%9A%B0-softmax-vs-sigmoid" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>클래스의 수가 2인 경우 softmax vs sigmoid</strong><a class="anchor-link" href="#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%88%98%EA%B0%80-2%EC%9D%B8-%EA%B2%BD%EC%9A%B0-softmax-vs-sigmoid"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 언뜻 생각하면 클래스가 2인 경우에도 sigmoid 대신 softmax로 활성화함수를 이용해도 될 듯 하다. 즉 $y=0 \text{ or } 1$와 같이 정리하지 않고 $y=[0,1] \text{ or } [1,0]$ 와 같이 정리해도 무방할 듯 하다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 하지만 약간의 디테일에서 sigmoid가 좀 더 좋은 선택이다. 즉 $y= 0 \text{ or } 1$로 데이터를 정리하는 것이 더 좋은 선택이다. 왜냐하면 sigmoid는 softmax와 비교하여 파라메터의 수가 적지만 표현력은 동등하기 때문이다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 표현력이 동등한 이유? 아래 수식을 관찰하자.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\big( \frac{e^{0}}{e^{0}+e^{200}}, \frac{e^{200}}{e^{0}+e^{200}}\big)$$
+</p>
 
 </div>
 </div>
@@ -503,7 +554,8 @@ $$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>note: $\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big) =\big( \frac{e^{0}}{e^{0}+e^{200}}, \frac{e^{200}}{e^{0}+e^{200}}\big)$</li>
+<li>$\big(\frac{e^{300}}{e^{300}+e^{500}},\frac{e^{500}}{e^{300}+e^{500}}\big)$를 표현하기 위해서 300, 500 이라는 2개의 숫자가 필요한것이 아니고 따지고보면 200이라는 하나의 숫자만 필요하다. </li>
+<li>$(\hat{\boldsymbol{y}}_1,\hat{\boldsymbol{y}}_2)$의 표현에서도 ${\bf X}\hat{\bf W}_1 +\hat{b}_1$ 와 ${\bf X}\hat{\bf W}_2 +\hat{b}_2$ 라는 숫자 각각이 필요한 것이 아니고 ${\bf X}\hat{\bf W}_1 +\hat{b}_1-{\bf X}\hat{\bf W}_2 +\hat{b}_2$의 값만 알면 된다. </li>
 </ul>
 
 </div>
@@ -512,7 +564,7 @@ $$\frac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1x_i)}=\frac{\exp(\beta_
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 확장성</p>
+<p><code>-</code> 클래스의 수가 2개일 경우는 softmax가 sigmoid에 비하여 장점이 없다. 하지만 softmax는 클래스의 수가 3개 이상일 경우로 쉽게 확장할 수 있다는 점에서 매력적인 활성화 함수이다.</p>
 
 </div>
 </div>
