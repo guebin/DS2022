@@ -96,7 +96,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      10 min read
     
 </span></p>
 
@@ -134,8 +134,13 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h3"><a href="#로지스틱-모형-(1)">로지스틱 모형 (1) </a></li>
-<li class="toc-entry toc-h3"><a href="#로지스틱-모형-(2)">로지스틱 모형 (2) </a></li>
+<li class="toc-entry toc-h3"><a href="#로지스틱-모형-(1):-활성화함수로-sigmoid-선택">로지스틱 모형 (1): 활성화함수로 sigmoid 선택 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#스칼라버전">스칼라버전 </a></li>
+<li class="toc-entry toc-h4"><a href="#벡터버전">벡터버전 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#로지스틱-모형-(2):-활성화함수로-softmax-선택">로지스틱 모형 (2): 활성화함수로 softmax 선택 </a></li>
 <li class="toc-entry toc-h3"><a href="#모형의-비교">모형의 비교 </a></li>
 <li class="toc-entry toc-h3"><a href="#분류할-클래스가-3개-이상일-경우-신경망-모형의-설계">분류할 클래스가 3개 이상일 경우 신경망 모형의 설계 </a></li>
 <li class="toc-entry toc-h3"><a href="#Fashion_MNIST-다중분류">Fashion_MNIST 다중분류 </a></li>
@@ -187,6 +192,14 @@ window.onload = wrap_img;
 
 <div class="output_area">
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>2022-05-06 10:37:51.868820: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -223,8 +236,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="로지스틱-모형-(1)">
-<a class="anchor" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95-(1)" aria-hidden="true"><span class="octicon octicon-link"></span></a>로지스틱 모형 (1)<a class="anchor-link" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95-(1)"> </a>
+<h3 id="로지스틱-모형-(1):-활성화함수로-sigmoid-선택">
+<a class="anchor" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95-(1):-%ED%99%9C%EC%84%B1%ED%99%94%ED%95%A8%EC%88%98%EB%A1%9C-sigmoid-%EC%84%A0%ED%83%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>로지스틱 모형 (1): 활성화함수로 sigmoid 선택<a class="anchor-link" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95-(1):-%ED%99%9C%EC%84%B1%ED%99%94%ED%95%A8%EC%88%98%EB%A1%9C-sigmoid-%EC%84%A0%ED%83%9D"> </a>
 </h3>
 </div>
 </div>
@@ -232,46 +245,18 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 스칼라버전</p>
-
+<h4 id="스칼라버전">
+<a class="anchor" href="#%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>스칼라버전</strong><a class="anchor-link" href="#%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84"> </a>
+</h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$y_i \propto b + w_1 x_{1,i} + \dots + w_{784}x_{784,i} $</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>$y_i \approx \text{sigmoid}(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})= \frac{\exp(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})}{1+\exp(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})} $</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 벡터버전</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>${\boldsymbol y} \propto {\bf X}{\bf W} + b$</p>
+<p><code>-</code> $y_i \approx \text{sigmoid}(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})= \frac{\exp(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})}{1+\exp(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})} $</p>
 <ul>
-<li>${\bf X}$: (n,784) matrix </li>
-<li>${\boldsymbol y}$: (n,1) matrix</li>
-<li>${\bf W}$: (784,1) matrix</li>
-<li>$b$: (1,1) matrix</li>
-<li>
-<code>+</code> 는 브로드캐스팅</li>
+<li>$y_i \propto b + w_1 x_{1,i} + \dots + w_{784}x_{784,i} $</li>
 </ul>
 
 </div>
@@ -280,10 +265,18 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>${\boldsymbol y} \approx \text{sigmoid}({\bf X}{\bf W} + b) = \frac{\exp({\bf XW} +b)}{1+\exp({\bf XW} +b)}$</p>
+<h4 id="벡터버전">
+<a class="anchor" href="#%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>벡터버전</strong><a class="anchor-link" href="#%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84"> </a>
+</h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> ${\boldsymbol y} \approx \text{sigmoid}({\bf X}{\bf W} + b) = \frac{\exp({\bf XW} +b)}{1+\exp({\bf XW} +b)}$</p>
 <ul>
-<li>
-<code>+</code>, <code>exp</code>는 브로드캐스팅 </li>
+<li>${\boldsymbol y} \propto {\bf X}{\bf W} + b$ </li>
 </ul>
 
 </div>
@@ -292,7 +285,24 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $\boldsymbol{y}$를 설명하는 본질: ${\bf X}{\bf W}+ b$이 값이 큰 row 일수록 대응하는 $\boldsymbol{y}$의 row 값은 1</p>
+<p><code>-</code> 차원 및 연산의 정리</p>
+<ul>
+<li>
+<p>${\bf X}$: (n,784) matrix</p>
+</li>
+<li>
+<p>${\boldsymbol y}$: (n,1) matrix</p>
+</li>
+<li>
+<p>${\bf W}$: (784,1) matrix</p>
+</li>
+<li>
+<p>$b$: (1,1) matrix</p>
+</li>
+<li>
+<p><code>+</code>, <code>exp</code> 는 브로드캐스팅</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -300,8 +310,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="로지스틱-모형-(2)">
-<a class="anchor" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95-(2)" aria-hidden="true"><span class="octicon octicon-link"></span></a>로지스틱 모형 (2)<a class="anchor-link" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95-(2)"> </a>
+<h3 id="로지스틱-모형-(2):-활성화함수로-softmax-선택">
+<a class="anchor" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95-(2):-%ED%99%9C%EC%84%B1%ED%99%94%ED%95%A8%EC%88%98%EB%A1%9C-softmax-%EC%84%A0%ED%83%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>로지스틱 모형 (2): 활성화함수로 softmax 선택<a class="anchor-link" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%EB%AA%A8%ED%98%95-(2):-%ED%99%9C%EC%84%B1%ED%99%94%ED%95%A8%EC%88%98%EB%A1%9C-softmax-%EC%84%A0%ED%83%9D"> </a>
 </h3>
 </div>
 </div>
@@ -309,7 +319,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 또 다른 모형</p>
+<p><code>-</code> $y_i=0 \text{ or } 1$ 대신에 $\boldsymbol{y}_i=[y_{i1},y_{i2}]= [1,0] \text { or } [0,1]$와 같이 코딩하면 어떠할까? (즉 원핫인코딩을 한다면?)</p>
 
 </div>
 </div>
@@ -317,14 +327,36 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>${\bf Y} \propto {\bf X}{\bf W} + {\boldsymbol b}$</p>
+<p><code>-</code> 활성화 함수를 취하기 전의 버전은 아래와 같이 볼 수 있다.</p>
+<p>
+$$[{\boldsymbol y}_1 ~ {\boldsymbol y}_2] \propto  [ {\bf X}{\bf W}_1  ~ {\bf X}{\bf W}_2] + [b_1 ~ b_2]= {\bf X} [{\bf W}_1 {\bf W}_2] + [b_1 ~ b_2]= {\bf X}{\bf W} + {\boldsymbol b}$$
+</p>
+<p>여기에서 매트릭스 및 연산의 차원을 정리하면 아래와 같다.</p>
 <ul>
-<li>${\bf X}$: (n,784) matrix </li>
-<li>${\bf Y}$: (n,2) matrix</li>
-<li>${\bf W}$: (784,2) matrix</li>
-<li>${\boldsymbol b}$: (1,2) matrix</li>
 <li>
-<code>+</code> 는 브로드캐스팅</li>
+<p>${\bf X}$: (n,784) matrix</p>
+</li>
+<li>
+<p>${\boldsymbol y}_1,{\boldsymbol y}_2$: (n,1) matrix</p>
+</li>
+<li>
+<p>${\boldsymbol y}:=[{\boldsymbol y}_1~ {\boldsymbol y}_2]$: (n,2) matrix</p>
+</li>
+<li>
+<p>${\bf W}_1$, ${\bf W}_2$: (784,1) matrix</p>
+</li>
+<li>
+<p>${\bf W}:=[{\bf W}_1~ {\bf W}_2]$: (784,2) matrix</p>
+</li>
+<li>
+<p>$b_1,b_2$: (1,1) matrix</p>
+</li>
+<li>
+<p>$\boldsymbol{b}:= [b_1 ~b_2] $: (1,2) matrix</p>
+</li>
+<li>
+<p><code>+</code> 는 브로드캐스팅</p>
+</li>
 </ul>
 
 </div>
@@ -333,37 +365,35 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$[{\boldsymbol y}_1 ~ {\boldsymbol y}_2] \propto  {\bf X} [{\bf W}_1 {\bf W}_2] + [b_1 ~ b_2]= [ {\bf X}{\bf W}_1  ~ {\bf X}{\bf W}_2] + [b_1 ~ b_2]$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>${\boldsymbol y}_1 \propto  {\bf X} {\bf W}_1 + b_1 \\ {\boldsymbol y}_2 \propto  {\bf X} {\bf W}_2 + b_2$</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 본질? ${\bf X}{\bf W}_1 +b_1$이 큰 row 일 수록 대응하는 $\boldsymbol{y}_1$의 row 값이 1이다. 또한 ${\bf X}{\bf W}_2 +b_2$이 큰 row 일 수록 대응하는 $\boldsymbol{y}_2$의 row 값이 1이다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 질문: ${\bf X}{\bf W}_1 +b_1$의 값이 500인 row가 있고, 그때 대응하는 ${\bf X}{\bf W}_2 +b_2$의 값은 200이라면? 대응하는 $\boldsymbol{y}_1, \boldsymbol{y}_2$의 row값은 어떠한가?</p>
+<p><code>-</code> 즉 로지스틱 모형 (1)의 형태를 겹쳐놓은 형태로 해석할 수 있음. 따라서 ${\boldsymbol y}_1$와 ${\boldsymbol y}_2$의 row값이 0인지 1인지는 각각 대응하는 ${\bf X} {\bf W}_1 + b_1$와 ${\bf X} {\bf W}_2 + b_2$의 row값이 큰지 작은지 살펴보고 판단할 수 있다.</p>
 <ul>
-<li>[0,0]</li>
-<li>[0,1]</li>
-<li>[1,0]</li>
-<li>[1,1]</li>
+<li>${\boldsymbol y}_1 \propto  {\bf X} {\bf W}_1 + b_1$ $\to$ ${\bf X} {\bf W}_1 + b_1$의 row값이 클수록 $\boldsymbol{y}_1$의 row 값이 1이라면 모형의 계수를 잘 추정한 것 </li>
+<li>${\boldsymbol y}_2 \propto  {\bf X} {\bf W}_2 + b_2$ $\to$ ${\bf X} {\bf W}_2 + b_2$의 row값이 클수록 $\boldsymbol{y}_2$의 row 값을 1이라면 모형의 계수를 잘 추정한 것</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> (문제) ${\bf X}{\bf W}_1 +b_1$의 값이 500, ${\bf X}{\bf W}_2 +b_2$의 값이 200 인 row가 있다고 하자. 대응하는 $\hat{\boldsymbol{y}}_1, \hat{\boldsymbol{y}}_2$의 row값은 얼마로 추론해야 하는것이 합리적인가?</p>
+<p>(1) $[0,0]$</p>
+<p>(2) $[0,1]$</p>
+<p>(3) $[1,0]$ &lt;-- 이게 답이다!</p>
+<p>(4) $[1,1]$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+    <strong>Note: </strong>둘다 0으로 추론하거나 둘다 1로 추론할수는 없으니까 
+</div>
 
 </div>
 </div>
