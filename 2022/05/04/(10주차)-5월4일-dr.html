@@ -134,12 +134,7 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h3"><a href="#로지스틱-모형-(1):-활성화함수로-sigmoid-선택">로지스틱 모형 (1): 활성화함수로 sigmoid 선택 </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#스칼라버전">스칼라버전 </a></li>
-<li class="toc-entry toc-h4"><a href="#벡터버전">벡터버전 </a></li>
-</ul>
-</li>
+<li class="toc-entry toc-h3"><a href="#로지스틱-모형-(1):-활성화함수로-sigmoid-선택">로지스틱 모형 (1): 활성화함수로 sigmoid 선택 </a></li>
 <li class="toc-entry toc-h3"><a href="#로지스틱-모형-(2):-활성화함수로-softmax-선택">로지스틱 모형 (2): 활성화함수로 softmax 선택 </a></li>
 <li class="toc-entry toc-h3"><a href="#모형의-비교">모형의 비교 </a></li>
 <li class="toc-entry toc-h3"><a href="#분류할-클래스가-3개-이상일-경우-신경망-모형의-설계">분류할 클래스가 3개 이상일 경우 신경망 모형의 설계 </a></li>
@@ -245,19 +240,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="스칼라버전">
-<a class="anchor" href="#%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>스칼라버전</strong><a class="anchor-link" href="#%EC%8A%A4%EC%B9%BC%EB%9D%BC%EB%B2%84%EC%A0%84"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> $y_i \approx \text{sigmoid}(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})= \frac{\exp(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})}{1+\exp(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})} $</p>
-<ul>
-<li>$y_i \propto b + w_1 x_{1,i} + \dots + w_{784}x_{784,i} $</li>
-</ul>
+<p><code>-</code> 기본버전은 아래와 같다</p>
 
 </div>
 </div>
@@ -265,19 +248,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="벡터버전">
-<a class="anchor" href="#%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>벡터버전</strong><a class="anchor-link" href="#%EB%B2%A1%ED%84%B0%EB%B2%84%EC%A0%84"> </a>
-</h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> ${\boldsymbol y} \approx \text{sigmoid}({\bf X}{\bf W} + b) = \frac{\exp({\bf XW} +b)}{1+\exp({\bf XW} +b)}$</p>
-<ul>
-<li>${\boldsymbol y} \propto {\bf X}{\bf W} + b$ </li>
-</ul>
+<p>
+$$y_i \approx \text{sigmoid}(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})= \frac{\exp(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})}{1+\exp(b + w_1 x_{1,i} + \dots + w_{784}x_{784,i})}$$
+</p>
 
 </div>
 </div>
@@ -285,7 +258,23 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 차원 및 연산의 정리</p>
+<p><code>-</code> 벡터버전은 아래와 같다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$${\boldsymbol y} \approx \text{sigmoid}({\bf X}{\bf W} + b) = \frac{\exp({\bf XW} +b)}{1+\exp({\bf XW} +b)}$$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>-</code> 벡터버전에 익숙해지도록 하자. 벡터버전에 사용된 차원 및 연산을 정리하면 아래와 같다.</p>
 <ul>
 <li>
 <p>${\bf X}$: (n,784) matrix</p>
@@ -401,7 +390,9 @@ $$[{\boldsymbol y}_1 ~ {\boldsymbol y}_2] \propto  [ {\bf X}{\bf W}_1  ~ {\bf X}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 활성화함수</p>
+<p><code>-</code> <strong>목표:</strong> 위와 같은 문제의 답을 유도해주는 활성화함수를 설계하자. 즉 합리적인 $\hat{\boldsymbol{y}}_1,\hat{\boldsymbol{y}}_2$를 구해주는 활성화 함수를 설계해보자. 이를 위해서는 아래의 사항들이 충족되어야 한다.</p>
+<p>(1) $\hat{\boldsymbol{y}}_1+\hat{\boldsymbol{y}}_2={\bf 1}$ 이어야 한다. (확률의 총합은 1이니까!)</p>
+<p>(2) $\hat{\boldsymbol{y}}_1$와 $\hat{\boldsymbol{y}}_2$를 각각 따로해석하면 로지스틱처럼 되면 좋겠다.</p>
 
 </div>
 </div>
@@ -409,7 +400,7 @@ $$[{\boldsymbol y}_1 ~ {\boldsymbol y}_2] \propto  [ {\bf X}{\bf W}_1  ~ {\bf X}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$[{\boldsymbol y}_1 ~ {\boldsymbol y}_2] \propto {\bf X}{\bf W} + \boldsymbol{b} = [ {\bf X}{\bf W}_1+b_1  ~ {\bf X}{\bf W}_2 +b_2] $</p>
+<p><code>-</code> 아래와 같은 활성화 함수를 도입하면 어떨까?</p>
 
 </div>
 </div>
@@ -417,7 +408,7 @@ $$[{\boldsymbol y}_1 ~ {\boldsymbol y}_2] \propto  [ {\bf X}{\bf W}_1  ~ {\bf X}
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$[{\boldsymbol y}_1 ~ {\boldsymbol y}_2] \approx  \big[ \frac{\exp({\bf X}{\bf W}_1+b_1)}{\exp({\bf X}{\bf W}_1+b_1)+\exp({\bf X}{\bf W}_2+b_2)}  ~~ \frac{\exp({\bf X}{\bf W}_2+b_2)}{\exp({\bf X}{\bf W}_1+b_1)+\exp({\bf X}{\bf W}_2+b_2)}  \big] $</p>
+<p>$[\hat_1 ~ \hat_2] = \big[ \frac{\exp({\bf X}\hat_1+\hat{b}_1)}{\exp({\bf X}\hat_1+\hat{b}_1)+\exp({\bf X}\hat_2+\hat{b}_2)}  ~~ \frac{\exp({\bf X}\hat_2+\hat{b}_2)}{\exp({\bf X}\hat_1+\hat{b}_1)+\exp({\bf X}\hat_2+\hat{b}_2)}  \big] $</p>
 
 </div>
 </div>
