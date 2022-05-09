@@ -305,7 +305,7 @@ window.onload = wrap_img;
 <td style="text-align:center">퇴사(실제)</td>
 <td style="text-align:center">TP, $\text{#}O/O$</td>
 <td style="text-align:center">FN, $\text{#}O/X$</td>
-<td style="text-align:center">Sensitivity(민감도)=Recall(재현율)=$\frac{TP}{TP+FN$}$=$\frac{\text{#}O/O}{\text{#}O/O+\text{#}O/X}$</td>
+<td style="text-align:center">Sensitivity(민감도)=Recall(재현율)=$\frac{TP}{TP+FN$}$=$\frac{\mbox{#}O/O}{\textbf{#}O/O+\text{#}O/X}$</td>
 </tr>
 <tr>
 <td style="text-align:center">안나감(실제)</td>
@@ -353,7 +353,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정의: Accuracy(애큐러시)=$\frac{TP+TN}{total}$=$\frac{\text{#}O/O+\text{#}X/X}{total}$</p>
+<p><code>-</code> 정의: Accuracy(애큐러시)=$\frac{TP+TN}{total}$=$\frac{\textbf{#}O/O+\textbf{#}X/X}{total}$</p>
 <ul>
 <li>한국말로는 정확도, 정분류율이라고 한다. </li>
 <li>한국말이 헷갈리므로 그냥 영어를 외우는게 좋다. (어차피 Keras에서 옵션도 영어로 넣음) </li>
@@ -367,12 +367,10 @@ window.onload = wrap_img;
 <p><code>-</code> (상확극 시점1) 왜 애큐러시는 불충분한가?</p>
 <ul>
 <li>회사: 퇴사자예측프로그램 개발해</li>
-<li>최규빈: 귀찮은데 다 나간다고 하자! -&gt; 99퍼의 accuracy 
-<div class="flash">
-    <svg class="octicon octicon-info" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>모델에 사용한 파라메터 = 0. 그런데 애큐러시 = 99! 이거 엄청 좋은 모형이다? 
-</div></li>
+<li>최규빈: 귀찮은데 다 나간다고 하자! -&gt; 99퍼의 accuracy </li>
 </ul>
+<blockquote><p>모델에 사용한 파라메터 = 0. 그런데 애큐러시 = 99! 이거 엄청 좋은 모형이다?</p>
+</blockquote>
 
 </div>
 </div>
@@ -561,10 +559,8 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><div class="flash">
-    <svg class="octicon octicon-info" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
-    <strong>Note: </strong>즉 생사람잡은 비율.. 오해해서 미안한 사람의 비율.. 
-</div></p>
+<blockquote><p>즉 생사람잡은 비율.. 오해해서 미안한 사람의 비율..</p>
+</blockquote>
 
 </div>
 </div>
