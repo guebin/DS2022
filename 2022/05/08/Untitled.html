@@ -303,21 +303,21 @@ window.onload = wrap_img;
 <tbody>
 <tr>
 <td style="text-align:center">퇴사(실제)</td>
-<td style="text-align:center">TP, $\text{#}O/O$</td>
-<td style="text-align:center">FN, $\text{#}O/X$</td>
-<td style="text-align:center">Sensitivity(민감도)=Recall(재현율)=$\frac{TP}{TP+FN$}$=$\frac{\mbox{#}O/O}{\textbf{#}O/O+\text{#}O/X}$</td>
+<td style="text-align:center">TP, $\# O/O$</td>
+<td style="text-align:center">FN, $\# O/X$</td>
+<td style="text-align:center">Sensitivity(민감도)=Recall(재현율)=$\frac{TP}{TP+FN$}$=$\frac{# O/O}{# O/O+# O/X}$</td>
 </tr>
 <tr>
 <td style="text-align:center">안나감(실제)</td>
-<td style="text-align:center">FP, $\text{#}X/O$</td>
-<td style="text-align:center">TN, $\text{#}X/X$</td>
+<td style="text-align:center">FP, $\# X/O$</td>
+<td style="text-align:center">TN, $\# X/X$</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center"></td>
-<td style="text-align:center">Precision(프리시즌)=$\frac{TP}{TP+FP}$=$\frac{\text{#}O/O}{\text{#}O/O+\text{#}X/O}$</td>
+<td style="text-align:center">Precision(프리시즌)=$\frac{TP}{TP+FP}$=$\frac{\# O/O}{\# O/O+\# X/O}$</td>
 <td style="text-align:center"></td>
-<td style="text-align:center">Accuracy(애큐러시)=$\frac{TP+TN}{total}$=$\frac{\text{#}O/O+\text{#}X/X}{total}$</td>
+<td style="text-align:center">Accuracy(애큐러시)=$\frac{TP+TN}{total}$=$\frac{\#O/O+\# X/X}{total}$</td>
 </tr>
 </tbody>
 </table>
@@ -353,7 +353,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정의: Accuracy(애큐러시)=$\frac{TP+TN}{total}$=$\frac{\textbf{#}O/O+\textbf{#}X/X}{total}$</p>
+<p><code>-</code> 정의: Accuracy(애큐러시)=$\frac{TP+TN}{total}$=$\frac{\#O/O+ \#X/X}{total}$</p>
 <ul>
 <li>한국말로는 정확도, 정분류율이라고 한다. </li>
 <li>한국말이 헷갈리므로 그냥 영어를 외우는게 좋다. (어차피 Keras에서 옵션도 영어로 넣음) </li>
@@ -383,7 +383,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정의: Sensitivity(민감도)=Recall(재현율)=$\frac{TP}{TP+FN$}$=$\frac{\text{#}O/O}{\text{#}O/O+\text{#}O/X}$</p>
+<p><code>-</code> 정의: Sensitivity(민감도)=Recall(재현율)=$\frac{TP}{TP+FN}$=$\frac{\# O/O}{\# O/O+\# O/X}$</p>
 <ul>
 <li>분모: 실제 O인 관측치 수 </li>
 <li>분자: 실제 O를 O라고 예측한 관측치 수 </li>
@@ -432,7 +432,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>-</code> 정의: Precision(프리시즌)=$\frac{TP}{TP+FP}$=$\frac{\text{#}O/O}{\text{#}O/O+\text{#}X/O}$</p>
+<p><code>-</code> 정의: Precision(프리시즌)=$\frac{TP}{TP+FP}$=$\frac{\# O/O}{\# O/O+\# X/O}$</p>
 <ul>
 <li>분모: O라고 예측한 관측치</li>
 <li>분자: O라고 예측한 관측치중 진짜 O인 관측치 </li>
@@ -540,8 +540,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>-</code> 정의:</p>
-<p>(1) Sensitivity(특이도)=$\frac{TN}{FP+TN}$=$\frac{\text{#}X/X}{\text{#}X/O+\text{#}X/X}$</p>
-<p>(2) False Positive Rate (FPR) = 1-Sensitivity(특이도) = $\frac{FP}{FP+TN}$=$\frac{\text{#}X/O}{\text{#}X/O+\text{#}X/X}$</p>
+<p>(1) Sensitivity(특이도)=$\frac{TN}{FP+TN}$=$\frac{\# X/X}{\# X/O+\# X/X}$</p>
+<p>(2) False Positive Rate (FPR) = 1-Sensitivity(특이도) = $\frac{FP}{FP+TN}$=$\frac{\# X/O}{\# X/O+\# X/X}$</p>
 
 </div>
 </div>
