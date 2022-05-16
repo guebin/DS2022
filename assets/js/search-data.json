@@ -2,8 +2,8 @@
   
     
         "post0": {
-            "title": "Title",
-            "content": "",
+            "title": "conv2d",
+            "content": "tf.keras.layers.Convolution2D . import tensorflow as tf import tensorflow.experimental.numpy as tnp . import numpy as np . tf.experimental.numpy.experimental_enable_numpy_behavior() . errors . test1 . tf.keras.layers.Conv2D(1,kernel_size=(2,2)) &#50836;&#50557; . - 요약 . (1) size=(2,2)인 윈도우를 만듬. . (2) XXX에 윈도우를 통과시켜서 (2,2)크기의 sub XXX 를 얻음. sub XXX의 각 원소에 conv2d.weights[0]의 각 원소를 element-wise하게 곱한다. . (3) (2)의 결과를 모두 더한다. 그리고 그 결과에 다시 conv2d.weights[1]을 수행 . (4) 윈도우를 이동시키면서 반복! . test2 . - XXX의 관측치가 여러개라면? . test3 . - 윈도우의 크기가 (3,3)이라면? . test4 . . test5 . - conv2의 채널이 여러개라면? . test6 . - X의 채널도 여러개이고, conv2의 채널도 여러개라면? .",
             "url": "https://guebin.github.io/DS2022/2022/05/15/Untitled.html",
             "relUrl": "/2022/05/15/Untitled.html",
             "date": " • May 15, 2022"
